@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="272.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.WebcamController">
+   <children>
+      <Label layoutX="28.0" layoutY="36.0" text="වෙබ් කැමරාව" />
+      <ComboBox fx:id="cmbCamera" layoutX="158.0" layoutY="32.0" onAction="#cmbCameraAP" prefHeight="25.0" prefWidth="266.0" promptText="වෙබ් කැමරාව තෝරන්න" />
+      <ImageView fx:id="imgCamera" fitHeight="120.0" fitWidth="160.0" layoutX="28.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnCapture" layoutX="449.0" layoutY="77.0" mnemonicParsing="false" onAction="#btnCaptureAP" prefHeight="33.0" prefWidth="43.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/camera.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fx:id="v" fitHeight="120.0" fitWidth="160.0" layoutX="211.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnClearImg" layoutX="449.0" layoutY="117.0" mnemonicParsing="false" onAction="#btnClearImgAP" prefHeight="33.0" prefWidth="43.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/clear.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnAddImg" layoutX="449.0" layoutY="183.0" mnemonicParsing="false" onAction="#btnAddImgAP" prefHeight="35.0" prefWidth="43.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

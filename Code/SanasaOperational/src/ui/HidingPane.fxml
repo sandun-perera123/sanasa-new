@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="209.0" styleClass="logPane" stylesheets="@../style/Styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.HidingPaneController">
+   <children>
+      <Button layoutX="5.0" layoutY="4.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="පරිශීලක සැකසුම්" textFill="WHITE" />
+      <Button layoutX="5.0" layoutY="34.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="අවසර සැකසුම්" textFill="WHITE" />
+      <Button layoutX="5.0" layoutY="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="198.0" text="ගිණුමෙන් ඉවත්වීම" textFill="WHITE" />
+   </children>
+</Pane>

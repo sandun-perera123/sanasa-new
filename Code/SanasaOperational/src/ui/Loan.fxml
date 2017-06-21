@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" styleClass="mainContent" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoanController">
+   <children>
+      <Rectangle fill="WHITE" height="140.0" layoutX="609.0" layoutY="93.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.2" width="426.0" />
+      <Label layoutX="39.0" layoutY="99.0" text="සාමාජිකයා" />
+      <ComboBox fx:id="cmbMember" layoutX="157.0" layoutY="95.0" onAction="#cmbMemberAP" prefHeight="25.0" prefWidth="250.0" promptText="සාමාජිකයා" />
+      <Label layoutX="39.0" layoutY="128.0" text="ණය වර්ගය" />
+      <ComboBox fx:id="cmbLoanType" layoutX="157.0" layoutY="124.0" onAction="#cmbLoanTypeAP" prefHeight="25.0" prefWidth="250.0" promptText="ණය වර්ගය" />
+      <Label layoutX="39.0" layoutY="188.0" text="වටිනාකම" />
+      <TextField fx:id="txtLoanAmount" layoutX="157.0" layoutY="184.0" onKeyReleased="#txtLoanAmountKR" prefHeight="25.0" prefWidth="250.0" promptText="වටිනාකම" />
+      <Label layoutX="39.0" layoutY="217.0" text="මුදල් අවශ්‍ය දිනය" />
+      <DatePicker fx:id="dtpLoanDate" layoutX="157.0" layoutY="213.0" onAction="#dtpLoanDateAP" prefHeight="25.0" prefWidth="250.0" />
+      <TextField fx:id="txtPayDate" layoutX="157.0" layoutY="241.0" onKeyReleased="#txtPayDateKR" prefHeight="27.0" prefWidth="149.0" promptText="මුදල් ගෙවන දිනය" />
+      <Label layoutX="39.0" layoutY="245.0" text="මුදල් ගෙවන දිනය" />
+      <Label layoutX="39.0" layoutY="274.0" text="කාල සීමාව" />
+      <TextField fx:id="txtDuration" layoutX="157.0" layoutY="270.0" onKeyReleased="#txtDurationKR" prefHeight="25.0" prefWidth="149.0" promptText="කාල සීමාව" />
+      <TextArea fx:id="txaRemarks" layoutX="157.0" layoutY="299.0" onKeyReleased="#txaRemarksKR" prefHeight="78.0" prefWidth="250.0" promptText="වෙනත් කරුණු" />
+      <Label layoutX="38.0" layoutY="303.0" text="වෙනත් කරුණු" />
+      <Label layoutX="39.0" layoutY="385.0" text="තත්ත්වය" />
+      <ComboBox fx:id="cmbStatus" layoutX="157.0" layoutY="381.0" onAction="#cmbStatusAP" prefHeight="25.0" prefWidth="250.0" promptText="තත්ත්වය" />
+      <ComboBox fx:id="cmbSearchStatus" layoutX="738.0" layoutY="161.0" onAction="#cmbSearchStatusAP" prefHeight="25.0" prefWidth="250.0" promptText="තත්ත්වය" />
+      <ComboBox fx:id="cmbSearchLoanType" layoutX="738.0" layoutY="132.0" onAction="#cmbSearchLoanTypeAP" prefHeight="25.0" prefWidth="250.0" promptText="ණය වර්ගය" />
+      <Label layoutX="632.0" layoutY="107.0" text="සාමාජිකයා" />
+      <Label layoutX="632.0" layoutY="136.0" text="ණය වර්ගය" />
+      <Label layoutX="632.0" layoutY="165.0" text="තත්ත්වය" />
+      <ComboBox fx:id="cmbSearchMember" layoutX="738.0" layoutY="103.0" onAction="#cmbSearchMemberAP" prefHeight="25.0" prefWidth="250.0" promptText="සාමාජිකයා" />
+      <Pagination fx:id="pagination" layoutX="477.0" layoutY="280.0" prefHeight="281.0" prefWidth="559.0" />
+      <TableView fx:id="tblLoan" layoutX="482.0" layoutY="284.0" onMouseClicked="#tblLoanMC" onMousePressed="#tblLoanKP" prefHeight="230.0" prefWidth="553.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="145.0" text="සාමාජිකයා" />
+          <TableColumn fx:id="colLoanType" prefWidth="151.0" text="ණය වර්ගය" />
+            <TableColumn fx:id="colAmount" prefWidth="135.0" text="ප්‍රමාණය" />
+            <TableColumn fx:id="colStatus" prefWidth="119.0" text="තත්ත්වය" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSearchClear" layoutX="895.0" layoutY="193.0" mnemonicParsing="false" onAction="#btnSearchClearAP" prefHeight="27.0" prefWidth="92.0" text="මකන්න">
+         <padding>
+            <Insets left="10.0" />
+         </padding></Button>
+      <Button fx:id="btnSearchLock" layoutX="737.0" layoutY="193.0" mnemonicParsing="false" onAction="#btnSearchLockAP" prefHeight="27.0" prefWidth="149.0" text="අගුලු දමන්න">
+         <padding>
+            <Insets left="12.0" />
+         </padding></Button>
+      <Pane prefHeight="57.0" prefWidth="1138.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="40.0" layoutY="15.0" styleClass="topic" text="ණය ගණුදෙනු" />
+            <Button fx:id="btnAdd" layoutX="934.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="30.0" prefWidth="103.0" text="සුරකින්න">
+               <padding>
+                  <Insets left="13.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnUpdate" layoutX="820.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="30.0" prefWidth="103.0" text="යාවත්කාලීන">
+               <padding>
+                  <Insets left="18.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btnClear" layoutX="707.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="30.0" prefWidth="103.0" text="මකන්න">
+               <padding>
+                  <Insets left="12.0" />
+               </padding>
+            </Button>
+            <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="938.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="822.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/update.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="711.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/clear.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="898.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/clear.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgLock" fitHeight="21.0" fitWidth="24.0" layoutX="743.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/unlock.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnDelete" layoutX="853.0" layoutY="242.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="30.0" prefWidth="181.0" style="-fx-background-color: #ff6666;" text="දත්ත ගොනුවෙන් ඉවතට" textFill="WHITE">
+         <padding>
+            <Insets left="12.0" />
+         </padding>
+      </Button>
+      <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="858.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgMemberSearch" fitHeight="27.0" fitWidth="25.0" layoutX="413.0" layoutY="95.0" onMouseClicked="#imgMemberSearchMC" preserveRatio="true" styleClass="image-view-wrapper">
+         <image>
+            <Image url="@../image/search.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgSearchMemberSearch" fitHeight="27.0" fitWidth="25.0" layoutX="995.0" layoutY="103.0" onMouseClicked="#imgSearchMemberSearchMC" preserveRatio="true" styleClass="image-view-wrapper">
+         <image>
+            <Image url="@../image/search.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="39.0" layoutY="158.0" text="පොළිය" />
+      <TextField fx:id="txtInterest" editable="false" layoutX="157.0" layoutY="154.0" prefHeight="27.0" prefWidth="67.0" promptText="පොළිය" />
+      <Label layoutX="232.0" layoutY="156.0" text="\%">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="317.0" layoutY="247.0" text="[ 01 - 28  දක්වා]" />
+      <Label layoutX="317.0" layoutY="274.0" text="මාස / වාරික" />
+   </children>
+</AnchorPane>

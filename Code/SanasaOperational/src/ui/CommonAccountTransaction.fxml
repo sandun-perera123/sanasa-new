@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="658.0" prefWidth="1216.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.CommonAccountTransactionController">
+   <children>
+      <Label layoutX="42.0" layoutY="82.0" text="ප්‍රධාන වර්ගය" />
+      <ComboBox fx:id="cmbMainCategory" layoutX="177.0" layoutY="78.0" onAction="#cmbMainCategoryAP" prefHeight="25.0" prefWidth="282.0" />
+      <Label layoutX="42.0" layoutY="111.0" text="උප වර්ගය" />
+      <ComboBox fx:id="cmbSubCategory" layoutX="177.0" layoutY="107.0" onAction="#cmbSubCategoryAP" prefHeight="25.0" prefWidth="282.0" />
+      <Label layoutX="42.0" layoutY="140.0" text="ගිණුම" />
+      <Label layoutX="42.0" layoutY="169.0" text="ශේෂය" />
+      <ComboBox fx:id="cmbAccount" layoutX="177.0" layoutY="136.0" onAction="#cmbAccountAP" prefHeight="25.0" prefWidth="282.0" />
+      <Label layoutX="42.0" layoutY="221.0" text="දිනය" />
+      <Label layoutX="42.0" layoutY="250.0" text="ගෙවීම් ආකාරය" />
+      <ComboBox fx:id="cmbTransactionType" layoutX="177.0" layoutY="246.0" onAction="#cmbTransactionTypeAP" prefHeight="25.0" prefWidth="282.0" />
+      <Label layoutX="42.0" layoutY="279.0" text="මුදල් ප්‍රමාණය" />
+      <Label layoutX="42.0" layoutY="308.0" text="නව ශේෂය" />
+      <Label layoutX="42.0" layoutY="338.0" text="සටහන්" />
+      <TextField fx:id="txtBalance" editable="false" layoutX="177.0" layoutY="165.0" prefHeight="25.0" prefWidth="282.0" />
+      <DatePicker fx:id="dtpDate" layoutX="177.0" layoutY="217.0" onAction="#dtpDateAP" prefHeight="25.0" prefWidth="282.0" />
+      <Pagination fx:id="pagination" layoutX="491.0" layoutY="76.0" prefHeight="552.0" prefWidth="696.0" />
+      <TextField fx:id="txtAmount" layoutX="177.0" layoutY="275.0" onKeyReleased="#txtAmountKR" prefHeight="25.0" prefWidth="282.0" />
+      <TextField fx:id="txtNewBalance" editable="false" layoutX="177.0" layoutY="304.0" prefHeight="25.0" prefWidth="282.0" />
+      <TextArea fx:id="txaRemarks" layoutX="177.0" layoutY="333.0" onKeyReleased="#txaRemarksKR" prefHeight="109.0" prefWidth="282.0" />
+      <TableView fx:id="tblTransaction" layoutX="491.0" layoutY="77.0" prefHeight="488.0" prefWidth="696.0">
+        <columns>
+          <TableColumn fx:id="colAccount" prefWidth="181.0" text="ගිණුම" />
+          <TableColumn fx:id="colDate" prefWidth="154.0" text="දිනය" />
+            <TableColumn fx:id="colType" prefWidth="178.0" text="හර / බැර" />
+            <TableColumn fx:id="colAmount" prefWidth="177.0" text="මුදල" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAdd" layoutX="368.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="25.0" prefWidth="91.0" text="Add" />
+      <Button fx:id="btnDelete" layoutX="262.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="25.0" prefWidth="91.0" text="Delete" />
+      <Button fx:id="btnClear" layoutX="159.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="25.0" prefWidth="91.0" text="Clear" />
+   </children>
+</AnchorPane>

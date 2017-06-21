@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" styleClass="imgUser" stylesheets="@../style/Styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainWindowNewController">
+   <top>
+      <AnchorPane prefHeight="61.0" prefWidth="1366.0" styleClass="paneTop" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="lblUser" fx:id="lblUser" layoutX="1062.0" layoutY="21.0" text="සදුන් මධුෂාන්" />
+            <ImageView fx:id="btnLogout" fitHeight="22.0" fitWidth="21.0" layoutX="1297.0" layoutY="20.0" onMouseClicked="#btnLogoutMC" pickOnBounds="true" preserveRatio="true" styleClass="mini-icon">
+               <image>
+                  <Image url="@../image/logout.png" />
+               </image>
+            </ImageView>
+            <Label id="lblSanasa" layoutX="57.0" layoutY="15.0" text="සී/ර සමූපකාර ණය ගණුදෙනු සමිතිය - මාදෙල්ගමුව" />
+            <ImageView fx:id="imgUser" fitHeight="45.0" fitWidth="45.0" layoutX="1009.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="51.0" fitWidth="37.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/sanasalogo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnHome" fitHeight="27.0" fitWidth="36.0" layoutX="1250.0" layoutY="17.0" onMouseClicked="#btnHomeAP" pickOnBounds="true" preserveRatio="true" styleClass="mini-icon">
+               <image>
+                  <Image url="@../image/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="602.0" prefWidth="224.0" styleClass="paneLeft" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion blendMode="COLOR_BURN" layoutX="1.0" layoutY="94.0" prefHeight="443.0" prefWidth="223.0" styleClass="navigation">
+              <panes>
+                <TitledPane prefHeight="226.0" prefWidth="223.0" text="සාමාජික">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="221.0">
+                           <children>
+                              <Button fx:id="btnMember" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMemberAP" prefHeight="25.0" prefWidth="193.0" styleClass="tglBtn" text="සාමාජික තොරතුරු" />
+                              <Button fx:id="btnRelation" layoutX="11.0" layoutY="50.0" mnemonicParsing="false" onAction="#btnRelationAP" prefHeight="25.0" prefWidth="193.0" text="සාමාජික නම් කිරීම්" />
+                              <Button fx:id="btnShares" layoutX="11.0" layoutY="86.0" mnemonicParsing="false" onAction="#btnSharesAP" prefHeight="25.0" prefWidth="193.0" text="කොටස් මිලදී ගැනීම්" />
+                              <Button fx:id="btnProperty" layoutX="11.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnPropertyAP" prefHeight="25.0" prefWidth="193.0" text="සාමාජික වත්කම්" />
+                              <Button fx:id="btnAttendance" layoutX="11.0" layoutY="157.0" mnemonicParsing="false" onAction="#btnAttendanceAP" prefHeight="25.0" prefWidth="193.0" text="පැමිණීම" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                  
+                <TitledPane text="ණය">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnLoan" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnLoanAP" prefHeight="25.0" prefWidth="193.0" text="ණය ඉල්ලීම්" />
+                              <Button fx:id="btnApproveLoan" layoutX="11.0" layoutY="49.0" mnemonicParsing="false" onAction="#btnApproveLoanAP" prefHeight="25.0" prefWidth="193.0" text="ණය අනුමත කිරීම්" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane prefHeight="182.0" prefWidth="223.0" text="සාමාජික ගිණුම්">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnAccount" layoutX="12.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnAccountAP" prefHeight="25.0" prefWidth="193.0" text="ගිණුම් තොරතුරු" />
+                              <Button fx:id="btnAccountPayment" layoutX="12.0" layoutY="49.0" mnemonicParsing="false" onAction="#btnAccountPaymentAP" prefHeight="25.0" prefWidth="193.0" text="මුදල් ගැනීම් හා තැන්පතු" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                  <TitledPane layoutX="10.0" layoutY="80.0" prefHeight="182.0" prefWidth="223.0" text="පොදු ගිණුම්">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnCommonAccount" layoutX="12.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnCommonAccountAP" prefHeight="25.0" prefWidth="193.0" text="නව ගිණුම් අතුළත් කිරීම" />
+                              <Button fx:id="btnCommonAccountTransaction" layoutX="12.0" layoutY="48.0" mnemonicParsing="false" onAction="#btnCommonAccountTransactionAP" prefHeight="25.0" prefWidth="193.0" text="හර / බැර" />
+                              <Button fx:id="btnIncome" layoutX="12.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnIncomeAP" prefHeight="25.0" prefWidth="193.0" text="මුදල් ලැබීම්" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane text="වෙනත්">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnMeeting" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnMeetingAP" prefHeight="25.0" prefWidth="193.0" text="කාරක සභා තොරතුරු" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  
+                  <TitledPane text="පරිශීලක සැකසුම්">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnPrivilege" layoutX="12.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnPrivilegeAP" prefHeight="25.0" prefWidth="193.0" text="පරිශීලක ප්‍රවේශ සැකසුම්" />
+                              <Button fx:id="btnUser" layoutX="12.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnUserAP" prefHeight="25.0" prefWidth="193.0" text="පරිශීලක ගිණුම්" />
+                           </children></AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane layoutX="10.0" layoutY="185.0" text="වාර්ථා">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnReportMember" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnReportMemberAP" prefHeight="25.0" prefWidth="193.0" text="සාමාජික වාර්ථා" />
+                              <Button fx:id="btnReportCommonaccountTransaction" disable="true" layoutX="12.0" layoutY="50.0" mnemonicParsing="false" onAction="#btnReportCommonaccountTransactionAP" prefHeight="25.0" prefWidth="193.0" text="පොදු ගිණුම් ගනුදෙනු" />
+                              <Button fx:id="btnReportCommonaccountBalance" disable="true" layoutX="12.0" layoutY="86.0" mnemonicParsing="false" onAction="#btnReportCommonaccountBalanceAP" prefHeight="25.0" prefWidth="193.0" text="පොදු ගිණුම් ශේෂය" />
+                              <Button fx:id="btnReportIncome" layoutX="12.0" layoutY="121.0" mnemonicParsing="false" onAction="#btnReportIncomeAP" prefHeight="25.0" prefWidth="193.0" text="මුදල් ලැබීම් පොත" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  
+                  
+              </panes>
+            </Accordion>
+            <Label fx:id="lblDate" layoutX="27.0" layoutY="31.0" text="Date" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="pneCenter" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1138.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

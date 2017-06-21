@@ -1,0 +1,276 @@
+
+
+/*.progress-bar > .track {
+  -fx-text-box-border: forestgreen;
+  -fx-control-inner-background: palegreen;
+}*/
+
+ImageView:hover{
+    -fx-cursor: hand;
+}
+
+
+
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(
+        from 0px .75em to .75em 0px,
+        repeat,
+        green 0%,
+        green 49%,
+        derive(green, 30%) 50%,
+        derive(green, 30%) 99%
+        );
+}
+
+
+
+/* Start : Main Window */
+
+.logPane{
+
+    -fx-background-color : #fff;
+    -fx-border-color: #15283e;
+
+}
+
+.logPane Button{
+
+    -fx-background-color :#298bd6;
+    -fx-background-radius :0px;
+
+}
+
+.logPane Button:hover{
+    -fx-background-color: #133956;
+    -fx-cursor: hand;
+}
+
+.mini-icon:hover{
+    -fx-cursor: hand;
+}
+
+.chart-plot-background {
+    -fx-background-color: #e2ecfe;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: #3278fa;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #3278fa;
+}
+.chart-alternative-row-fill {
+    -fx-fill: #99bcfd;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+
+.chartPane{
+    -fx-border-color:#1a3048;
+}
+
+.chart-series-line {    
+    -fx-stroke-width: 5px;
+}
+
+.default-color0.chart-series-line { -fx-stroke:lime; }
+
+
+/* End : Main Window */
+
+
+
+/* Start : Dashbord */
+
+.notificationPane .cell:filled:selected:focused, .notificationPane .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+}
+
+.notificationPane .cell:even { 
+    -fx-background-color: white;
+}
+
+.notificationPane .cell:odd {
+    -fx-background-color: silver;
+}
+
+.notificationPane .cell{
+    -fx-cell-size: 40px;
+    -fx-font: 13pt "Arial";
+    /*    -fx-border-width: 1px;
+        -fx-border-color: black;*/
+}
+
+.notificationPane .cell:hover{
+    -fx-cursor: hand;
+}
+
+.notificationPane .cell:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+}
+
+
+
+/* End : Dashbord */
+
+
+
+/*Start : Login Window */
+
+#btnLogin, #btnCancel{
+    -fx-background-color: #0078c9;
+    -fx-text-fill: white;
+    -fx-border-radius: 0px;
+}
+
+#btnLogin:hover, #btnCancel:hover{
+    -fx-cursor: hand;
+    -fx-background-color: white;
+    -fx-text-fill: #0078c9;
+    -fx-border-color: #6d7077;
+}
+
+/*Start : Login Window */
+
+
+
+
+/*Start : Top Pane*/
+
+.paneTop{
+    -fx-background-color: #e3eaf4;
+}
+
+.imgUser{
+    -fx-fill: transparent;
+}
+
+#lblUser{
+    -fx-text-fill: #6d7077;
+    -fx-font-size:15px;	
+}
+
+#lblSanasa{
+    -fx-font-size:21px;	
+}
+
+/*End : Top Pane*/
+
+
+
+
+/*Start : Left Pane*/
+
+.paneLeft{
+    -fx-background-color: #1a3048;
+}
+
+.navigation TitledPane .title{
+    -fx-pref-height:35px;
+    -fx-background-color: #15283e;
+    -fx-border-width: 0.3 0 0.3 0;
+    -fx-border-color: white;
+}
+
+.navigation TitledPane .title .text{
+    -fx-fill: white;
+    -fx-font-size:15px;	
+}
+
+.navigation TitledPane .content{
+    -fx-background-color: #1a3048;
+    -fx-border-color:#15283e;
+}
+
+.navigation TitledPane .content Button{
+    -fx-background-color: #0078c9;
+    -fx-text-fill: white;
+    -fx-background-radius:0px;
+}
+
+.navigation TitledPane .content Button:hover{
+    -fx-text-fill: #0078c9;
+    -fx-cursor: hand;
+    -fx-background-color: white;
+}
+
+
+.navigation TitledPane .title .arrow-button .arrow{
+    -fx-background-color: greenyellow;
+}
+
+/*End : Left Pane*/
+
+
+
+
+/*Start : Center Pane*/
+
+.topicPane{
+    -fx-background-color: #1a3048;
+}
+
+.topic{
+    -fx-text-fill: white;
+    -fx-font-size:18px;	
+}
+
+.mainContent Button{
+    -fx-background-color: white;
+    -fx-border-color:black;
+    -fx-border-width: 0.3px;
+}
+
+.mainContent Button:hover{
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+}
+
+.mainContent TextField, .mainContent ComboBox, .mainContent TextArea, .mainContent DatePicker, .mainContent ListView{
+    -fx-background-color: white;
+    -fx-border-color:black;
+    -fx-border-width: 0.3px;
+}
+
+.mainContent TableView .column-header{
+    -fx-background-color:#1a3048;
+}
+
+.mainContent TableView .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+}
+
+.mainContent TableView .table-cell{
+    -fx-font-size: 10.5px;
+}
+
+.tile{
+    -fx-background-color: white;
+    -fx-background-color: white;
+    -fx-border-color:black;
+    -fx-border-width: 0.3px;
+}
+
+.chart-pie-label {
+    -fx-font-size: 9px;
+}
+
+.dynamicButton{
+    -fx-background-color: white;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+
+.dynamicButton:hover{
+    -fx-border-width: 1px;
+    -fx-border-style: dashed;
+}
+
+
+/*End : Center Pane*/
+
+
+
+

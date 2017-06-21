@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainWindowControllerOld">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+<children><MenuBar layoutY="1.5" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml">
+  <menus>
+    <Menu fx:id="mnuPeople" mnemonicParsing="false" text="People">
+      <items>
+        <MenuItem fx:id="mtmEmployee" mnemonicParsing="false" onAction="#mtmEmployeeAP" text="Employee" />
+                  <MenuItem fx:id="mtmDesignation" mnemonicParsing="false" onAction="#mtmDesignationAP" text="Designation" />
+                  <MenuItem fx:id="mtmMember" mnemonicParsing="false" onAction="#mtmMemberAP" text="Member" />
+                  <MenuItem fx:id="mtmRelation" mnemonicParsing="false" onAction="#mtmRelationAP" text="Relation" />
+      </items>
+    </Menu>
+            <Menu fx:id="munAdmin" mnemonicParsing="false" text="Admin">
+              <items>
+                <MenuItem fx:id="mtmUser" mnemonicParsing="false" onAction="#mtmUserAP" text="User" />
+                  <MenuItem fx:id="mtmPrivilage" mnemonicParsing="false" onAction="#mnuPrivilageAP" text="Privilage" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Finance">
+              <items>
+                <MenuItem fx:id="mtmAccount" mnemonicParsing="false" onAction="#mtmAccountAP" text="Account Management" />
+                  <MenuItem fx:id="mtmAccounttype" mnemonicParsing="false" onAction="#mtmAccounttypeAP" text="Account Type Management" />
+                  <MenuItem fx:id="mtmLoan" mnemonicParsing="false" onAction="#mtmLoanAP" text="Loan Management" />
+                  <MenuItem fx:id="mtmLoanType" mnemonicParsing="false" onAction="#mtmLoanTypeAP" text="Loan Type Management" />
+                  <MenuItem fx:id="mtmShare" mnemonicParsing="false" onAction="#mtmShareAP" text="Shares" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Other">
+              <items>
+                <MenuItem fx:id="mtmMeeting" mnemonicParsing="false" onAction="#mtmMeetingAP" text="Meeting" />
+                  <MenuItem fx:id="mtmProperty" mnemonicParsing="false" onAction="#mtmPropertyAP" text="Property" />
+              </items>
+            </Menu>
+  </menus>
+</MenuBar><SplitPane fx:id="sptMain" dividerPositions="0.18924889543446244" focusTraversable="true" layoutX="-1.0" layoutY="25.0" prefHeight="743.0" prefWidth="1360.0" xmlns:fx="http://javafx.com/fxml">
+  <items>
+    <AnchorPane fx:id="apnLeft" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+<children><SplitPane fx:id="sptLeft" dividerPositions="0.24696356275303644" focusTraversable="true" orientation="VERTICAL" prefHeight="743.0" prefWidth="254.0">
+  <items>
+    <AnchorPane fx:id="apnLeftTop" minHeight="0.0" minWidth="0.0" prefHeight="152.0" prefWidth="240.0">
+<children><ImageView fx:id="imgLogo" fitHeight="105.0" fitWidth="138.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/earthlogo.png" />
+                                 </image></ImageView><ImageView fx:id="imgUser" fitHeight="105.0" fitWidth="69.0" layoutX="169.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/user.png" />
+                                 </image></ImageView><Label fx:id="lblUser" layoutX="171.0" layoutY="149.0" text="Mr. Suranga" /><Label fx:id="lblTime" layoutX="14.0" layoutY="149.0" text="13.44 pm" />
+</children></AnchorPane>
+    <AnchorPane fx:id="apnLeftBottom" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+  </items>
+</SplitPane>
+</children></AnchorPane>
+    <AnchorPane fx:id="apnRight" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+  </items>
+</SplitPane>
+</children>
+</AnchorPane>

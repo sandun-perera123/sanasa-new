@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ebd63da-68bd-45d3-9c05-92705ee59683">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     smember.`id` AS smember_id,
+     smember.`memberid` AS smember_memberid,
+     smember.`name` AS smember_name,
+     smember.`gender_id` AS smember_gender_id,
+     smember.`tel` AS smember_tel,
+     smember.`occupation` AS smember_occupation,
+     smember.`education` AS smember_education,
+     smember.`domembership` AS smember_domembership,
+     smember.`memberstatus_id` AS smember_memberstatus_id,
+     smember.`employee_id` AS smember_employee_id,
+     gender.`id` AS gender_id,
+     gender.`name` AS gender_name,
+     memberstatus.`id` AS memberstatus_id,
+     memberstatus.`name` AS memberstatus_name
+FROM
+     `gender` gender INNER JOIN `smember` smember ON gender.`id` = smember.`gender_id`
+     INNER JOIN `memberstatus` memberstatus ON smember.`memberstatus_id` = memberstatus.`id`]]>
+	</queryString>
+	<field name="smember_memberid" class="java.lang.Integer"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="gender_name" class="java.lang.String"/>
+	<field name="smember_tel" class="java.lang.String"/>
+	<field name="smember_occupation" class="java.lang.String"/>
+	<field name="smember_education" class="java.lang.String"/>
+	<field name="memberstatus_name" class="java.lang.String"/>
+	<group name="memberstatus_name">
+		<groupExpression><![CDATA[$F{memberstatus_name}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement uuid="4b6d4de2-2001-439c-b19b-59652f1acb21" style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#006600"/>
+					<textElement>
+						<font fontName="Iskoola Pota" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{memberstatus_name}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="6ec5b0c2-06c3-4eab-83f8-508e346061e3" mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement uuid="d24ac158-964a-4dd9-91f5-f25abec26055" x="275" y="0" width="300" height="64"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="a5e5f6f1-1eea-4c95-ad5a-3d747e5f5d91" style="Title" x="0" y="13" width="263" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Leaf Green Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f2483c2-16ba-40f1-b9d6-ff2f154e08cb" style="SubTitle" x="100" y="46" width="174" height="22"/>
+				<textElement/>
+				<text><![CDATA[Leaf Green SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="b482ffd7-6f97-4050-ba9f-e6d220322ed9" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="200a519f-e2dd-42f5-bc1a-f2a4e9dd5833" style="Column header" x="0" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eee1a512-7895-4f07-a20a-c702fb0b9921" style="Column header" x="92" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[smember_name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f2f727ee-d8e0-4988-a081-ac9e1aeb5038" style="Column header" x="184" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ස්ත්‍රී/පුරුෂ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2855cd8b-79e1-4fd2-919e-c7cced0a3e9a" style="Column header" x="276" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[smember_tel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d11d2720-4cce-41b0-869e-4720ca90b254" style="Column header" x="368" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[smember_occupation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10677643-a09e-4d1d-904c-26be71391a8e" style="Column header" x="460" y="19" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[smember_education]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="7583a8af-5133-481b-a496-52663553723c" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="b8ed31f6-ffaf-4fd9-8290-806bf009d353" style="Detail" x="0" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_memberid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="47de6e93-121f-4b7e-b71a-8a254a2a802e" style="Detail" x="92" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a3f23388-a31e-423a-92e1-05117da714b5" style="Detail" x="184" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e1dd3b15-1089-49df-8dc7-b94c62a98c9c" style="Detail" x="276" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_tel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="783fed06-c176-4d9c-9d83-729765232378" style="Detail" x="368" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_occupation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="62b18b01-c5d5-40ae-9231-d5687ee07df3" style="Detail" x="460" y="0" width="92" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_education}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="ab3fa9eb-4134-47df-a57d-f138d3783283" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="859d9341-b27c-43e1-94bc-4c02f1b3046d" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="3ca14d45-98be-44a2-87b3-ed3105d64b36" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="a4098560-19d1-4097-8219-77015c67b733" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b979b4e-71ab-4d50-9ff7-bbed04e654d4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="98"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     smember.`memberid` AS smember_memberid,
+     smember.`name` AS smember_name,
+gender.`name` AS gender_name,
+     smember.`address` AS smember_address,
+     smember.`dob` AS smember_dob,
+     smember.`tel` AS smember_tel,
+     smember.`domembership` AS smember_domembership
+
+FROM
+     `gender` gender INNER JOIN `smember` smember ON gender.`id` = smember.`gender_id`]]>
+	</queryString>
+	<field name="smember_memberid" class="java.lang.String"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="gender_name" class="java.lang.String"/>
+	<field name="smember_address" class="java.lang.String"/>
+	<field name="smember_dob" class="java.sql.Date"/>
+	<field name="smember_tel" class="java.lang.String"/>
+	<field name="smember_domembership" class="java.sql.Date"/>
+	<variable name="today" class="java.util.Date">
+		<variableExpression><![CDATA[new Date()]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0cbc91cd-1750-475c-ab3e-952862f243ec" x="286" y="15" width="288" height="46"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="24"/>
+				</textElement>
+				<text><![CDATA[සාමාජික තොරතුරු]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="965c47de-0c56-40a5-a633-e8e6f5e79cdc" x="5" y="23" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[සාමාජික අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0b745807-e02d-486b-a278-c6e78310c854" x="89" y="23" width="167" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="114fd5f3-c8be-45a4-b740-af4c448b2eb5" x="258" y="23" width="65" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[ස්ත්‍රී / පුරුෂ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="834f02c7-e3c6-4f29-aef5-074f317a0216" x="327" y="23" width="164" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[ලිපිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8916c738-8279-4ad1-8f66-32fba55a1095" x="517" y="22" width="86" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[උපන්දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bf360242-427e-44ad-9b59-d49816405a5c" x="613" y="23" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[දු.ක. අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="34a2e792-402b-494f-bfda-d5bd24275722" x="723" y="23" width="71" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[සාමාජික දිනය]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="20f41421-c743-419c-9c03-2da4d0988960" x="1" y="48" width="801" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="20f41421-c743-419c-9c03-2da4d0988960" x="0" y="13" width="801" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement uuid="83f61791-b64e-4149-a608-f3256a766afa" x="5" y="1" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_memberid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d9ce1c9-5a67-4234-85db-faf4631cc653" x="89" y="1" width="167" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ea80045b-2bfb-4fab-ab14-2bfa13ab491f" x="257" y="1" width="66" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d093f885-95e3-4181-a793-c493d943b4ac" x="327" y="1" width="164" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_address}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="8936e44e-3964-4b54-9500-3aed5db00d2d" x="517" y="0" width="86" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_dob}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="476f9616-6c2b-4c7f-a218-00134fa47fd2" x="613" y="1" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_tel}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="c8f1e57b-6bc5-4dff-afcf-82534d065520" x="723" y="1" width="71" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_domembership}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="126" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="18ef08c5-5329-4188-8256-a2936a14bbd1" x="714" y="34" width="81" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{today}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="38c4fcfa-ddbb-4984-b848-48333dc5b0ce" x="98" y="34" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="843153c3-9390-4faf-ad4e-db3876dc00f5" x="675" y="34" width="35" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="13ac63f5-3efb-41cc-bfed-2931bfad17de" x="24" y="34" width="69" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[පිටු අංකය]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

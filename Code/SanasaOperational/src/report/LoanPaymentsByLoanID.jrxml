@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b18d2708-e4d1-4a8e-9221-feff090ea710">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="28"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="loanid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     smember.`memberid` AS smember_memberid,
+     smember.`name` AS smember_name,
+  loan.`dorequest` AS loan_dorequest,
+loan.`doapproved` AS loan_doapproved,
+loan.`duration` AS loan_duration,
+     loan.`interest` AS loan_interest,
+loan.`amount` AS loan_amount,
+loan.`approvedamount` AS loan_approvedamount,
+
+     loanpayment.`insno` AS loanpayment_insno,
+     loanpayment.`dopayment` AS loanpayment_dopayment,
+     loanpayment.`installment` AS loanpayment_installment,
+     loanpayment.`interest` AS loanpayment_interest,
+     loanpayment.`totalAmount` AS loanpayment_totalAmount
+FROM
+     `smember` smember INNER JOIN `loan` loan ON smember.`id` = loan.`smember_id`
+     INNER JOIN `loanpayment` loanpayment ON loan.`id` = loanpayment.`loan_id`
+WHERE loan.`id` = $P{loanid}]]>
+	</queryString>
+	<field name="smember_memberid" class="java.lang.String"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="loan_dorequest" class="java.sql.Date"/>
+	<field name="loan_doapproved" class="java.sql.Date"/>
+	<field name="loan_duration" class="java.lang.Integer"/>
+	<field name="loan_interest" class="java.math.BigDecimal"/>
+	<field name="loan_amount" class="java.math.BigDecimal"/>
+	<field name="loan_approvedamount" class="java.math.BigDecimal"/>
+	<field name="loanpayment_insno" class="java.lang.Integer"/>
+	<field name="loanpayment_dopayment" class="java.sql.Date"/>
+	<field name="loanpayment_installment" class="java.math.BigDecimal"/>
+	<field name="loanpayment_interest" class="java.math.BigDecimal"/>
+	<field name="loanpayment_totalAmount" class="java.math.BigDecimal"/>
+	<variable name="totalInterest" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{loanpayment_interest}]]></variableExpression>
+	</variable>
+	<variable name="totalInstallment" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{loanpayment_totalAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e3bc421-0786-4702-843b-245a2534fa4a" x="145" y="17" width="366" height="65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="18"/>
+				</textElement>
+				<text><![CDATA[
+සී/ර මාදෙල්ගමුව සකසුරුවම් හා ණය ගණුදෙනු පිළිබද සමූපකාර සමිතිය]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement uuid="fb4a7635-7794-4ab0-8866-c5ee8e8b7740" x="10" y="6" width="104" height="92"/>
+				<imageExpression><![CDATA["C:\\Users\\Sandun-PC\\Desktop\\Sanasa\\Code\\Sanasa\\src\\image\\sanasalogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="256" splitType="Stretch">
+			<line>
+				<reportElement uuid="3cebdec9-34bb-47a9-b9cf-af9d3a826b2d" positionType="FixRelativeToBottom" x="0" y="4" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="0fb74c0e-b93b-4158-9e49-2a2062cab4cb" style="Column header" x="311" y="38" width="77" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1a7b3729-17f1-4d99-81e4-972bf77116f1" style="Column header" x="311" y="57" width="77" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සාමාජික අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2cfbbcad-6b6c-4880-bfce-1a4403ff99f1" style="Column header" x="0" y="90" width="100" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ණය ඉල්ලූ දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ce58e259-f487-47cc-ad88-0a0f9d67a1b4" style="Column header" x="0" y="108" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ණය අනුමත කළ දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8b503f4-c45e-4c68-8636-64fcc8c90041" style="Column header" x="2" y="126" width="98" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[කාල සීමාව / වාරික]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5b39dba5-a8a7-40dc-8aa7-5aa022c15d7d" style="Column header" x="2" y="144" width="98" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[පොළිය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eed67fb9-5c87-4221-9fdd-a23bc2bd315a" style="Column header" x="2" y="162" width="98" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ණය ඉල්ලූ මුදල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f845212d-0cc9-4c9f-8358-362fd7eeb707" style="Column header" x="2" y="180" width="98" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ණය අනුමත මුදල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad64ac7c-c10d-4af7-b828-17b2b23048d2" style="Column header" x="26" y="232" width="65" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[වාරිකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a2deb23a-f9a9-425c-87e0-128a98eff9c3" style="Column header" x="103" y="232" width="82" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ගෙවන දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="546cd1a2-91c1-4d97-b5b0-fba3bede6542" style="Column header" x="198" y="233" width="89" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[වාරික මුදල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="215d6efd-459d-47d9-ad04-325812643067" style="Column header" x="299" y="233" width="82" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[වාරික ණය මුදල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e3d7dfd-66ed-42be-87f4-e7cf9836246e" style="Column header" x="415" y="232" width="100" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[මුලු වාරික මුදල]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3aad3d52-6d57-4b81-ac9f-c17d4ccb555d" style="Detail" x="398" y="38" width="139" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65f445ae-b939-45bc-ad69-a08b80cbf6f6" style="Detail" x="398" y="57" width="94" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_memberid}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="1aab7f37-2299-4256-be92-08d21a2dec04" style="Detail" x="148" y="90" width="144" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_dorequest}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="f8c7935b-5485-4c99-a53f-c0655854e685" style="Detail" x="148" y="108" width="144" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_doapproved}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7e555b0a-5a80-4751-929b-17890a0f78ea" style="Detail" x="172" y="126" width="60" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_duration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8b702cc8-bfe1-4216-b8c1-c75606f3517f" style="Detail" x="148" y="144" width="144" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_interest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="57fe727a-147c-4a51-9bdf-5d787251f7fc" style="Detail" x="148" y="162" width="144" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5abcf94c-a870-4aef-a804-56b3c3b692ea" style="Detail" x="148" y="180" width="155" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loan_approvedamount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="3cebdec9-34bb-47a9-b9cf-af9d3a826b2d" positionType="FixRelativeToBottom" x="0" y="75" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="3cebdec9-34bb-47a9-b9cf-af9d3a826b2d" positionType="FixRelativeToBottom" x="1" y="207" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="d8b503f4-c45e-4c68-8636-64fcc8c90041" style="Column header" x="148" y="126" width="23" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[මාස]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement uuid="ccabb7c4-b900-4ea3-9493-08b24440ce9d" positionType="FixRelativeToBottom" x="0" y="18" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="2a52fd59-8c74-4661-b134-fb5951a2334f" style="Detail" x="26" y="0" width="65" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loanpayment_insno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2ab443d8-0c2c-479c-ac66-3aaa3cc32a27" style="Detail" x="198" y="0" width="89" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loanpayment_installment}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="15b7704c-7a10-4726-a5a5-3c3b2b1d16a5" style="Detail" x="299" y="0" width="82" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loanpayment_interest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6f5cc93a-2fd8-4870-97dc-61ef9927ee6a" style="Detail" x="415" y="0" width="100" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loanpayment_totalAmount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="de2307b8-6c39-48ca-b55f-c4db53b4a1f9" style="Detail" x="103" y="0" width="82" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loanpayment_dopayment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement uuid="e82052ae-1d5f-43d5-baf8-1948e079d842" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="d1926e3e-bb6f-4867-97a1-25aaafb546c9" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="100" splitType="Stretch">
+			<textField>
+				<reportElement uuid="8f3fc6d1-15a4-4773-abd5-c0741921f0bb" x="299" y="2" width="82" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalInterest}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="215d6efd-459d-47d9-ad04-325812643067" style="Column header" x="198" y="3" width="82" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[එකතුව]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e93f47b0-16f5-41df-8c87-359ffa0ecb68" x="415" y="2" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalInstallment}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="e82052ae-1d5f-43d5-baf8-1948e079d842" positionType="FixRelativeToBottom" x="301" y="24" width="80" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="e82052ae-1d5f-43d5-baf8-1948e079d842" positionType="FixRelativeToBottom" x="301" y="27" width="80" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="e82052ae-1d5f-43d5-baf8-1948e079d842" positionType="FixRelativeToBottom" x="428" y="25" width="80" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="e82052ae-1d5f-43d5-baf8-1948e079d842" positionType="FixRelativeToBottom" x="428" y="28" width="80" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

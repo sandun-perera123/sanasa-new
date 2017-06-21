@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc6efc35-557c-4abd-be21-feaccab6dfe1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     commonaccounttransaction.`date` AS commonaccounttransaction_date,
+     commonaccounttransaction.`voucher_no` AS commonaccounttransaction_voucher_no,
+     commonaccounttransaction.`remarks` AS commonaccounttransaction_remarks,
+     commonaccounttransaction.`amount` AS commonaccounttransaction_amount
+FROM
+     `commonaccounttransaction` commonaccounttransaction
+WHERE commonaccounttransaction.`commonaccounttransactiontype_id` = 1
+&& commonaccounttransaction.`commonaccount_id` = 9
+ORDER BY commonaccounttransaction.`date`]]>
+	</queryString>
+	<field name="commonaccounttransaction_date" class="java.lang.String"/>
+	<field name="commonaccounttransaction_voucher_no" class="java.lang.String"/>
+	<field name="commonaccounttransaction_remarks" class="java.lang.String"/>
+	<field name="commonaccounttransaction_amount" class="java.math.BigDecimal"/>
+	<variable name="sum" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{commonaccounttransaction_amount}]]></variableExpression>
+	</variable>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="309df5a2-2be4-4eff-8cc2-5a5f03d1373c" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="8b126369-2c9d-460f-8d4a-58786223cd54" x="24" y="20" width="263" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Iskoola Pota" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[මුදල් ලැබීම් පොත]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="09dd04cf-09b8-4ced-8e88-e21e52dc184a" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="b2f1da20-9ce4-429a-8ae9-0c1c324bf377" mode="Opaque" x="0" y="0" width="110" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f211e1e-028e-4523-a4ae-a56a3cae9535" mode="Opaque" x="110" y="0" width="112" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[වවුචර් අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4ce1e4dc-02b8-4164-b710-d88e8ba1c6ff" mode="Opaque" x="222" y="0" width="192" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[විස්තරය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4f595c90-df5a-401b-a392-365d11d8d84e" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[මුදල]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="9daa6459-bf43-429d-8ab4-d172de438ef9" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="b0c1b161-3864-4140-8cf5-25b4866b819c" x="0" y="0" width="110" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccounttransaction_date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a30638a8-47d9-4837-b00f-b0e517168719" x="110" y="0" width="112" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccounttransaction_voucher_no}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="92260643-a7d1-4ca9-b20f-f298d35bca98" x="222" y="0" width="192" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccounttransaction_remarks}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="91fb28d3-960f-415d-a7bc-9fab2a6a0ed9" x="430" y="0" width="101" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccounttransaction_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="86">
+			<textField>
+				<reportElement uuid="3d036e86-bc53-40d1-9e76-3a850fb8a269" mode="Opaque" x="0" y="66" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="238b0183-07b7-42aa-8e8b-c897d92566df" mode="Opaque" x="515" y="66" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="623cea5b-d3c1-48da-ba3f-2e79a98c927a" x="0" y="66" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50">
+			<staticText>
+				<reportElement uuid="2f211e1e-028e-4523-a4ae-a56a3cae9535" mode="Opaque" x="363" y="12" width="51" height="20" forecolor="#006699" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[එකතුව]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement uuid="f2b6b68f-777a-49fa-8d1f-057f40599550" mode="Transparent" x="431" y="12" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Iskoola Pota" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

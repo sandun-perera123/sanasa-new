@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+<!--    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sanasa?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">bit</property>-->
+    
+    <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+    <property name="hibernate.connection.useUnicode">true</property>
+    
+    <mapping class="entity.Civilstatus"/>
+    <mapping class="entity.Designation"/>
+    <mapping class="entity.Employee"/>
+    <mapping class="entity.Employeestatus"/>
+    <mapping class="entity.Gender"/>
+    <mapping class="entity.Module"/>
+    <mapping class="entity.Privilage"/>
+    <mapping class="entity.Role"/>
+    <mapping class="entity.User"/>
+    <mapping class="entity.Userstatus"/>
+    <mapping class="entity.Accountstatus"/>
+    <mapping class="entity.Accounttype"/>
+    <mapping class="entity.Account"/>
+    <mapping class="entity.Smember"/>
+    <mapping class="entity.Loan"/>
+    <mapping class="entity.Loanstatus"/>
+    <mapping class="entity.Loantype"/>
+    <mapping class="entity.User"/>
+    <mapping class="entity.Memberstatus"/>
+    <mapping class="entity.Share"/>
+    <mapping class="entity.Sharegain"/>
+    <mapping class="entity.Sharetype"/>
+    <mapping class="entity.Meeting"/>
+    <mapping class="entity.Meetingstatus"/>
+    <mapping class="entity.Meetingtype"/>
+    <mapping class="entity.Property"/>
+    <mapping class="entity.Propertygain"/>
+    <mapping class="entity.Propertytype"/>
+    <mapping class="entity.Relations"/>
+    <mapping class="entity.Accounttype"/>
+    <mapping class="entity.Accounttypecategory"/>
+    <mapping class="entity.Accounttypestatus"/>
+    <mapping class="entity.Loantypestatus"/>
+    <mapping class="entity.Attendance"/>
+    <mapping class="entity.Attendancetype"/>
+    <mapping class="entity.Accountpayment"/>
+    <mapping class="entity.Accountpaymenttype"/>
+    <mapping class="entity.Loanpayment"/>
+    <mapping class="entity.Commonaccount"/>
+    <mapping class="entity.Commonaccountcategory"/>
+    <mapping class="entity.Commonaccountsubcategory"/>
+    <mapping class="entity.Commonaccounttransaction"/>
+    <mapping class="entity.Commonaccounttransactiontype"/>
+  </session-factory>
+</hibernate-configuration>

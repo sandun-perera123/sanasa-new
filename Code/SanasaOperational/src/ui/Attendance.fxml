@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" styleClass="mainContent" stylesheets="@../style/Styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AttendanceController">
+   <children>
+      <Rectangle fill="WHITE" height="69.0" layoutX="695.0" layoutY="231.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.2" width="385.0" />
+      <Pane prefHeight="77.0" prefWidth="1138.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="30.0" layoutY="25.0" styleClass="topic" text="පැමිණීම" />
+         </children>
+      </Pane>
+      <Label layoutX="32.0" layoutY="118.0" text="කාරක සභා වර්ගය" />
+      <ComboBox fx:id="cmbMeetingType" layoutX="191.0" layoutY="114.0" onAction="#cmbMeetingTypeAP" prefHeight="27.0" prefWidth="271.0" promptText="කාරක සභා වර්ගය තෝරන්න" />
+      <ComboBox fx:id="cmbMeeting" layoutX="191.0" layoutY="176.0" onAction="#cmbMeetingAP" prefHeight="27.0" prefWidth="271.0" promptText="කාරක සභාව තෝරන්න" />
+      <Label layoutX="32.0" layoutY="181.0" text="කාරක සභාව" />
+      <Label layoutX="31.0" layoutY="219.0" text="දිනය" />
+      <TextField fx:id="txtMeetingDate" editable="false" layoutX="191.0" layoutY="214.0" prefHeight="27.0" prefWidth="120.0" />
+      <Label layoutX="31.0" layoutY="250.0" prefHeight="17.0" prefWidth="143.0" text="බලාපොරොත්තු ගණන" />
+      <TextField fx:id="txtExpectedCount" editable="false" layoutX="191.0" layoutY="245.0" prefHeight="27.0" prefWidth="120.0" />
+      <Label layoutX="31.0" layoutY="281.0" text="පැමිණි ගණන" />
+      <TextField fx:id="txtCount" editable="false" layoutX="191.0" layoutY="276.0" prefHeight="27.0" prefWidth="120.0" />
+      <Label layoutX="32.0" layoutY="150.0" text="දින පරාසය" />
+      <DatePicker fx:id="dtpFrom" layoutX="191.0" layoutY="146.0" onAction="#dtpFromAP" prefHeight="25.0" prefWidth="102.0" />
+      <DatePicker fx:id="dtpTo" layoutX="329.0" layoutY="146.0" onAction="#dtpToAP" prefHeight="25.0" prefWidth="102.0" />
+      <Label layoutX="300.0" layoutY="150.0" prefHeight="17.0" prefWidth="22.0" text="සිට" />
+      <Label layoutX="437.0" layoutY="150.0" prefHeight="17.0" prefWidth="38.0" text="දක්වා" />
+      <Pagination fx:id="pagination" layoutX="32.0" layoutY="322.0" prefHeight="317.0" prefWidth="1050.0" />
+      <TableView fx:id="tblAttendance" layoutX="32.0" layoutY="322.0" prefHeight="266.0" prefWidth="1050.0">
+        <columns>
+          <TableColumn fx:id="colMemberID" prefWidth="125.0" text="සාමාජික අංකය" />
+          <TableColumn fx:id="colMemberName" prefWidth="373.0" text="නම" />
+            <TableColumn fx:id="colAttendanceType" prefWidth="229.0" text="පැමිණීම" />
+            <TableColumn fx:id="colReason" prefWidth="321.0" text="සටහන්" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtSearchMemberID" layoutX="873.0" layoutY="254.0" onKeyReleased="#txtSearchMemberIDAP" prefHeight="27.0" prefWidth="195.0" />
+      <Label layoutX="712.0" layoutY="259.0" text="සාමාජික අංකය" />
+      <Button fx:id="btnClear" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="30.0" prefWidth="103.0" text="මකන්න">
+         <padding>
+            <Insets left="13.0" />
+         </padding>
+      </Button>
+      <Button fx:id="btnAdd" layoutX="986.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="30.0" prefWidth="103.0" text="සුරකින්න">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Button>
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="991.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="881.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/clear.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

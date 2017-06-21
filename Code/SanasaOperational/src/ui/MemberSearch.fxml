@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="779.0" stylesheets="@../style/Styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MemberSearchController">
+   <children>
+      <Pane prefHeight="57.0" prefWidth="779.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="25.0" layoutY="16.0" styleClass="topic" text="සාමාජික තොරතුරු සෙවුම" />
+         </children>
+      </Pane>
+      <Label layoutX="25.0" layoutY="92.0" text="සාමාජික අංකය" />
+      <TextField fx:id="txtSearchMemberID" layoutX="137.0" layoutY="88.0" onKeyReleased="#txtSearchMemberIDKR" prefHeight="25.0" prefWidth="268.0" promptText="සාමාජික අංකය ඇතුළත් කරන්න" />
+      <Label layoutX="25.0" layoutY="121.0" text="නම" />
+      <TextField fx:id="txtSearchName" layoutX="137.0" layoutY="117.0" onKeyReleased="#txtSearchNameKR" prefHeight="25.0" prefWidth="268.0" promptText="නම ඇතුළත් කරන්න" />
+      <Label layoutX="25.0" layoutY="150.0" text="ජා.හැ. අංකය" />
+      <TextField fx:id="txtSearchNIC" layoutX="137.0" layoutY="146.0" onKeyReleased="#txtSearchNICKR" prefHeight="25.0" prefWidth="268.0" promptText="ජා.හැ. අංකය ඇතුළත් කරන්න" />
+      <Label layoutX="25.0" layoutY="179.0" text="ගිණුම් අංකය" />
+      <TextField fx:id="txtSearchAccountNo" layoutX="137.0" layoutY="175.0" onKeyReleased="#txtSearchAccountNoKR" prefHeight="25.0" prefWidth="268.0" promptText="ගිණුම් අංකය ඇතුළත් කරන්න" />
+      <Pagination fx:id="pagination" layoutX="25.0" layoutY="227.0" prefHeight="371.0" prefWidth="725.0" />
+      <TableView fx:id="tblMember" layoutX="25.0" layoutY="227.0" onMouseClicked="#tblMemberMC" prefHeight="320.0" prefWidth="725.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="320.0" text="නම" />
+          <TableColumn fx:id="colMemberID" minWidth="0.0" prefWidth="154.0" text="සාමාජික අංකය" />
+            <TableColumn fx:id="colNIC" prefWidth="117.0" text="ජා.හැ. අංකය" />
+            <TableColumn fx:id="colTel" prefWidth="128.0" text="දු.ක අංකය" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

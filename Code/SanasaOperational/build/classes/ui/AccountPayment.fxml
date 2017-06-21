@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" styleClass="mainContent" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AccountPaymentController">
+   <children>
+      <Rectangle fill="WHITE" height="187.0" layoutX="658.0" layoutY="86.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.2" width="426.0" />
+      <Pane prefHeight="57.0" prefWidth="1138.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="25.0" layoutY="15.0" styleClass="topic" text="මුදල් ගැනීම් හා තැන්පතු" />
+            <Button fx:id="btnClear" layoutX="983.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="30.0" prefWidth="103.0" text="මකන්න">
+               <padding>
+                  <Insets left="13.0" />
+               </padding>
+            </Button>
+            <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="989.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/clear.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="27.0" layoutY="117.0" text="සාමාජිකයා *" />
+      <ComboBox fx:id="cmbMember" layoutX="174.0" layoutY="112.0" onAction="#cmbMemberAP" prefHeight="27.0" prefWidth="246.0" promptText="සාමාජිකයා තෝරන්න" />
+      <Label layoutX="27.0" layoutY="146.0" text="ගිණුම් *" />
+      <ComboBox fx:id="cmbAccount" layoutX="174.0" layoutY="141.0" onAction="#cmbAccountAP" prefHeight="27.0" prefWidth="246.0" promptText="ගිණුම තෝරන්න" />
+      <Label layoutX="27.0" layoutY="175.0" text="ගිණුම් වර්ගය" />
+      <Label layoutX="27.0" layoutY="206.0" text="ගිණුම් අංකය" />
+      <Label layoutX="27.0" layoutY="295.0" text="ශේෂය" />
+      <Label layoutX="27.0" layoutY="325.0" text="ලබාගත හැකි ශේෂය" />
+      <TextField fx:id="txtAccountType" editable="false" layoutX="174.0" layoutY="171.0" prefHeight="27.0" prefWidth="246.0" promptText="ගිණුම් වර්ගය" />
+      <TextField fx:id="txtAccountNo" editable="false" layoutX="174.0" layoutY="201.0" prefHeight="27.0" prefWidth="246.0" promptText="ගිණුම් අංකය" />
+      <TextField fx:id="txtBalance" editable="false" layoutX="174.0" layoutY="290.0" prefHeight="27.0" prefWidth="246.0" promptText="ශේෂය" />
+      <TextField fx:id="txtAvailableBalance" editable="false" layoutX="174.0" layoutY="319.0" prefHeight="27.0" prefWidth="246.0" promptText="ලබාගත හැකි ශේෂය" />
+      <Label layoutX="27.0" layoutY="236.0" text="ගැනීම් / තැන්පතු *" />
+      <ComboBox fx:id="cmbAccountPaymentType" layoutX="174.0" layoutY="231.0" onAction="#cmbAccountPaymentTypeAP" prefHeight="27.0" prefWidth="246.0" promptText="ගැනීම් / තැන්පතු තෝරන්න" />
+      <Label layoutX="27.0" layoutY="266.0" text="මුදල *" />
+      <TextField fx:id="txtAmount" layoutX="174.0" layoutY="260.0" onKeyReleased="#txtAmountKR" prefHeight="27.0" prefWidth="246.0" promptText="මුදල ඇතුළත් කරන්න" />
+      <Label layoutX="27.0" layoutY="355.0" text="නව ශේෂය" />
+      <TextField fx:id="txtNewBalance" editable="false" layoutX="174.0" layoutY="349.0" prefHeight="27.0" prefWidth="246.0" promptText="නව ශේෂය" />
+      <Label layoutX="680.0" layoutY="105.0" text="සාමාජිකයා" />
+      <ComboBox fx:id="cmbSearchMember" layoutX="802.0" layoutY="100.0" onAction="#cmbSearchMemberAP" prefHeight="27.0" prefWidth="271.0" promptText="සාමාජිකයා‍ තෝරන්න" />
+      <Label layoutX="680.0" layoutY="134.0" text="ගිණුම්" />
+      <ComboBox fx:id="cmbSearchAccountNo" layoutX="802.0" layoutY="129.0" onAction="#cmbSearchAccountNoAP" prefHeight="27.0" prefWidth="271.0" promptText="ගිණුම තෝරන්න" />
+      <Label layoutX="680.0" layoutY="163.0" text="ගැනීම් / තැන්පතු" />
+      <ComboBox fx:id="cmbSearchAccountPaymentType" layoutX="802.0" layoutY="158.0" onAction="#cmbSearchAccountPaymentTypeAP" prefHeight="27.0" prefWidth="271.0" promptText="ගැනීම් / තැන්පතු තෝරන්න" />
+      <Button fx:id="btnSearchClear" layoutX="981.0" layoutY="234.0" mnemonicParsing="false" onAction="#btnSearchClearAP" prefHeight="27.0" prefWidth="92.0" text="මකන්න">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Button>
+      <Pagination fx:id="pagination" layoutX="445.0" layoutY="285.0" prefHeight="275.0" prefWidth="632.0" />
+      <TableView fx:id="tblAccountPayment" layoutX="445.0" layoutY="292.0" onMouseClicked="#tblAccountPaymentMC" prefHeight="217.0" prefWidth="640.0">
+         <columns>
+            <TableColumn fx:id="colDate" prefWidth="122.0" text="දිනය" />
+            <TableColumn fx:id="colMemberID" prefWidth="120.0" text="සාමාජික අංකය" />
+            <TableColumn fx:id="colAccountNo" minWidth="0.0" prefWidth="129.0" text="ගිණුම් අංකය" />
+            <TableColumn fx:id="colAccountPaymentType" prefWidth="110.0" text="ගෙවීම් වර්ගය" />
+            <TableColumn fx:id="colAmount" prefWidth="158.0" text="මුදල" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnPay" layoutX="298.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnPayAP" prefHeight="108.0" prefWidth="122.0">
+         <graphic>
+            <ImageView fitHeight="87.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/pay.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnPrint" layoutX="174.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnPrintAP" prefHeight="108.0" prefWidth="116.0">
+         <graphic>
+            <ImageView fitHeight="69.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/print.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="27.0" layoutY="87.0" text="බිල්පත් අංකය" />
+      <TextField fx:id="txtBillNo" editable="false" layoutX="174.0" layoutY="83.0" prefHeight="27.0" prefWidth="246.0" promptText="බිල්පත් අංකය" />
+      <Label layoutX="680.0" layoutY="193.0" text="දින පරාසය" />
+      <DatePicker fx:id="dtpSearchFrom" layoutX="802.0" layoutY="188.0" onAction="#dtpSearchFromAP" prefHeight="25.0" prefWidth="98.0" />
+      <DatePicker fx:id="dtpSearchTo" layoutX="934.0" layoutY="188.0" onAction="#dtpSearchToAP" prefHeight="25.0" prefWidth="98.0" />
+      <Label layoutX="907.0" layoutY="193.0" text="සිට" />
+      <Label layoutX="1039.0" layoutY="193.0" text="දක්වා" />
+      <Button fx:id="btnSearchLock" layoutX="881.0" layoutY="234.0" mnemonicParsing="false" onAction="#btnSearchLockAP" prefHeight="27.0" prefWidth="92.0" text="අගුලු දමන්න">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Button>
+   </children>
+</AnchorPane>

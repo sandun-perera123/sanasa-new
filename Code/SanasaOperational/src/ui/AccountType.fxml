@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AccountTypeController">
+   <children>
+      <Label layoutX="34.0" layoutY="73.0" text="Category" />
+      <ComboBox fx:id="cmbCategory" layoutX="121.0" layoutY="69.0" onAction="#cmbCategoryAP" prefHeight="25.0" prefWidth="220.0" promptText="Select Category" />
+      <Label layoutX="34.0" layoutY="108.0" text="Name" />
+      <TextField fx:id="txtName" layoutX="121.0" layoutY="104.0" onKeyReleased="#txtNameKR" prefHeight="25.0" prefWidth="220.0" promptText="Enter Name" />
+      <Label layoutX="34.0" layoutY="143.0" text="Min Amount" />
+      <TextField fx:id="txtMinAmount" layoutX="121.0" layoutY="139.0" onKeyReleased="#txtMinAmountKR" prefHeight="25.0" prefWidth="220.0" promptText="Enter Min Amount" />
+      <TextField fx:id="txtInterest" layoutX="121.0" layoutY="173.0" onKeyReleased="#txtInterestKR" prefHeight="25.0" prefWidth="220.0" promptText="Enter Interest" />
+      <Label layoutX="34.0" layoutY="177.0" text="Interest" />
+      <ComboBox fx:id="cmbStatus" layoutX="121.0" layoutY="208.0" onAction="#cmbStatusAP" prefHeight="25.0" prefWidth="220.0" promptText="Enter Status" />
+      <Label layoutX="34.0" layoutY="212.0" text="Status" />
+      <Button fx:id="btnAdd" layoutX="269.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="25.0" prefWidth="72.0" text="Add" />
+      <Button fx:id="btnDelete" layoutX="187.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="25.0" prefWidth="72.0" text="Delete" />
+      <Button fx:id="btnUpdate" layoutX="104.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="25.0" prefWidth="72.0" text="Update" />
+      <Button fx:id="btnClear" layoutX="22.0" layoutY="273.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="25.0" prefWidth="72.0" text="Clear" />
+      <ComboBox fx:id="cmbSearchCategory" layoutX="534.0" layoutY="65.0" onAction="#cmbSearchCategoryAP" prefHeight="25.0" prefWidth="220.0" promptText="Select Category" />
+      <Label layoutX="447.0" layoutY="69.0" text="Category" />
+      <ComboBox fx:id="cmbSearchStatus" layoutX="534.0" layoutY="94.0" onAction="#cmbSearchStatusAP" prefHeight="25.0" prefWidth="220.0" promptText="Select Status" />
+      <Label layoutX="447.0" layoutY="98.0" text="Status" />
+      <TableView fx:id="tblAccounttype" layoutX="362.0" layoutY="159.0" onMouseClicked="#tblAccounttypeMC" prefHeight="200.0" prefWidth="392.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="157.0" text="Name" />
+          <TableColumn fx:id="colCategory" prefWidth="163.0" text="Category" />
+            <TableColumn fx:id="colInterest" prefWidth="67.0" text="Interest" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSearchClear" layoutX="701.0" layoutY="127.0" mnemonicParsing="false" onAction="#btnSearchClearAP" prefHeight="25.0" prefWidth="54.0" text="Clear" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

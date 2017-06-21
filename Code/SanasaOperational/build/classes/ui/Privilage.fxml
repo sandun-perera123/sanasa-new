@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" styleClass="mainContent" stylesheets="@../style/Styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.PrivilageController">
+   <children>
+      <Button fx:id="btnDelete" layoutX="903.0" layoutY="251.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="30.0" prefWidth="181.0" text="දත්ත ගොනුවෙන් ඉවතට" />
+      <Pane prefHeight="73.0" prefWidth="1200.0" styleClass="moduletopicback" />
+      <Label layoutX="62.0" layoutY="162.0" text="භූමිකාව" />
+      <Label layoutX="62.0" layoutY="206.0" text="මොඩියුලය" />
+      <ComboBox fx:id="cmbRole" layoutX="167.0" layoutY="158.0" onAction="#cmbRoleAP" prefHeight="25.0" prefWidth="312.0" promptText="භූමිකාව" />
+      <ComboBox fx:id="cmbModule" layoutX="167.0" layoutY="202.0" onAction="#cmbModuleAP" prefHeight="25.0" prefWidth="312.0" promptText="මොඩියුලය" />
+      <CheckBox fx:id="cbxSelect" layoutX="167.0" layoutY="314.0" mnemonicParsing="false" onAction="#cbxSelectAP" text="දත්ත බැලීම" />
+      <CheckBox fx:id="cbxInsert" layoutX="167.0" layoutY="350.0" mnemonicParsing="false" onAction="#cbxInsertAP" text="දත්ත ඇතුළත් කිරීම" />
+      <CheckBox fx:id="cbxUpdate" layoutX="167.0" layoutY="383.0" mnemonicParsing="false" onAction="#cbxUpdateAP" text="දත්ත යාවත්කාලීන තිරීම" />
+      <CheckBox fx:id="cbxDelete" layoutX="167.0" layoutY="419.0" mnemonicParsing="false" onAction="#cbxDeleteAP" text="දත්ත මැකීම" />
+      <Label layoutX="656.0" layoutY="127.0" text="භූමිකාව" />
+      <Label layoutX="655.0" layoutY="158.0" text="මොඩියුලය" />
+      <ComboBox fx:id="cmbSearchRole" layoutX="772.0" layoutY="123.0" onAction="#cmbSearchRoleAP" prefHeight="25.0" prefWidth="312.0" promptText="භූමිකාව" />
+      <ComboBox fx:id="cmbSearchModule" layoutX="771.0" layoutY="154.0" onAction="#cmbSearchModuleAP" prefHeight="25.0" prefWidth="312.0" promptText="මොඩියුලය" />
+      <Button fx:id="btnSearchClear" layoutX="990.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnSearchClearAP" prefHeight="27.0" prefWidth="92.0" text="මකන්න" />
+      <Pagination fx:id="pagination" layoutX="589.0" layoutY="292.0" prefHeight="368.0" prefWidth="496.0" />
+      <TableView fx:id="tblPrivilage" layoutX="594.0" layoutY="297.0" onKeyReleased="#tblPrivilageKR" onMouseClicked="#tblPrivilageMC" prefHeight="316.0" prefWidth="488.0">
+        <columns>
+            <TableColumn fx:id="colRole" prefWidth="100.0" text="භූමිකාව" />
+            <TableColumn fx:id="colModule" prefWidth="113.0" text="මොඩියුලය" />
+            <TableColumn fx:id="colSelect" prefWidth="69.0" text="Select" />
+          <TableColumn fx:id="colInsert" prefWidth="68.0" text="Insert" />
+          <TableColumn fx:id="colUpdate" prefWidth="69.0" text="Update" />
+            <TableColumn fx:id="colDelete" prefWidth="63.0" text="Delete" />
+        </columns>
+      </TableView>
+      <Pane layoutX="-2.0" prefHeight="66.0" prefWidth="1200.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="27.0" layoutY="15.0" styleClass="topic" text="පරිශීලක ප්‍රවේශ සැකසුම්" />
+            <Button fx:id="btnUpdate" layoutX="873.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="30.0" prefWidth="103.0" text="යාවත්කාලීන">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnClear" layoutX="760.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="30.0" prefWidth="103.0" text="මකන්න" />
+            <Button fx:id="btnAdd" layoutX="986.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="30.0" prefWidth="103.0" text="සුරකින්න" />
+            <ImageView fitHeight="19.0" fitWidth="25.0" layoutX="875.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/update.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="766.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/clear.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="987.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="904.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="992.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/clear.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

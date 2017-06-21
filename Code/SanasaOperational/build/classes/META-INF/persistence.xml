@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SampleEmployeePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>entity.Role</class>
+    <class>entity.Employee</class>
+    <class>entity.Userstatus</class>
+    <class>entity.Employeestatus</class>
+    <class>entity.Privilage</class>
+    <class>entity.Designation</class>
+    <class>entity.User</class>
+    <class>entity.Gender</class>
+    <class>entity.Civilstatus</class>
+    <class>entity.Module</class>
+    <class>entity.Account</class>
+    <class>entity.Member1</class>
+    <class>entity.Accountstatus</class>
+    <class>entity.Accounttype</class>
+    <class>entity.SMember</class>
+    <class>entity.Smember</class>
+    <class>entity.Loantype</class>
+    <class>entity.Loanstatus</class>
+    <class>entity.Loan</class>
+    <class>entity.Memberstatus</class>
+    <class>entity.Sharegain</class>
+    <class>entity.Sharetype</class>
+    <class>entity.Share</class>
+    <class>entity.Meetingstatus</class>
+    <class>entity.Meeting</class>
+    <class>entity.Meetingtype</class>
+    <class>entity.Propertygain</class>
+    <class>entity.Property</class>
+    <class>entity.Propertytype</class>
+    <class>entity.Relations</class>
+    <class>entity.Accounttypecategory</class>
+    <class>entity.Accounttypestatus</class>
+    <class>entity.Loantypestatus</class>
+    <class>entity.Attendance</class>
+    <class>entity.Attendancetype</class>
+    <class>entity.Accountpaymenttype</class>
+    <class>entity.Accountpayment</class>
+    <class>entity.Customer</class>
+    <class>entity.Bank</class>
+    <class>entity.Supplierstatus</class>
+    <class>entity.Category</class>
+    <class>entity.Productionstatus</class>
+    <class>entity.Subcategory</class>
+    <class>entity.Design</class>
+    <class>entity.Customerorder</class>
+    <class>entity.Customerorderstatus</class>
+    <class>entity.Item</class>
+    <class>entity.Customerstatus</class>
+    <class>entity.Production</class>
+    <class>entity.Theme</class>
+    <class>entity.Itemstatus</class>
+    <class>entity.Supplier</class>
+    <class>entity.Loanpayment</class>
+    <class>entity.Commonaccountsubcategory</class>
+    <class>entity.Commonaccount</class>
+    <class>entity.Commonaccountcategory</class>
+    <class>entity.Commonaccounttransactiontype</class>
+    <class>entity.Commonaccounttransaction</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/earthuniversity?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="1993"/>
+    </properties>
+  </persistence-unit>
+</persistence>

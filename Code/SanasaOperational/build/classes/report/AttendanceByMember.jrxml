@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="60a24514-0da3-475c-b66c-735f14660184">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="memberid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     smember.`memberid` AS smember_memberid,
+     smember.`name` AS smember_name,
+     smember.`domembership` AS smember_domembership,
+     meeting.`domeeting` AS meeting_domeeting,
+     attendancetype.`name` AS attendancetype_name,
+     attendance.`reason` AS attendance_reason,
+     meetingtype.`name` AS meetingtype_name
+FROM
+     `smember` smember INNER JOIN `attendance` attendance ON smember.`id` = attendance.`smember_id`
+     INNER JOIN `attendancetype` attendancetype ON attendance.`attendancetype_id` = attendancetype.`id`
+     INNER JOIN `meeting` meeting ON attendance.`meeting_id` = meeting.`id`
+     INNER JOIN `meetingtype` meetingtype ON meeting.`meetingtype_id` = meetingtype.`id`
+WHERE
+     smember.`id` = $P{memberid}
+ORDER BY
+     meeting.`domeeting` DESC]]>
+	</queryString>
+	<field name="smember_memberid" class="java.lang.Integer"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="smember_domembership" class="java.sql.Date"/>
+	<field name="meeting_domeeting" class="java.sql.Date"/>
+	<field name="attendancetype_name" class="java.lang.String"/>
+	<field name="attendance_reason" class="java.lang.String"/>
+	<field name="meetingtype_name" class="java.lang.String"/>
+	<variable name="total1" class="java.lang.Integer" resetType="Page" calculation="Sum"/>
+	<group name="attendancetype_name">
+		<groupExpression><![CDATA[$F{attendancetype_name}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement uuid="b99eb0ba-31fc-40bd-914b-633a55a6de35" style="SubTitle" x="25" y="13" width="160" height="16" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Iskoola Pota" size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{attendancetype_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="16"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e3bc421-0786-4702-843b-245a2534fa4a" x="157" y="24" width="366" height="65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="18"/>
+				</textElement>
+				<text><![CDATA[
+සී/ර මාදෙල්ගමුව සකසුරුවම් හා ණය ගණුදෙනු පිළිබද සමූපකාර සමිතිය]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement uuid="fb4a7635-7794-4ab0-8866-c5ee8e8b7740" x="22" y="13" width="104" height="92"/>
+				<imageExpression><![CDATA["C:\\Users\\Sandun-PC\\Desktop\\Sanasa\\Code\\Sanasa\\src\\image\\sanasalogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="111" splitType="Stretch">
+			<line>
+				<reportElement uuid="3d2f744b-f925-4696-b218-893829ae1f45" positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="9e151111-b16d-4f8f-8fb1-a6062512037f" style="Column header" x="24" y="12" width="102" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සාමාජික අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="71b212d1-fc01-492a-9e71-be07e88ef761" style="Column header" x="24" y="32" width="102" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a127b8e9-1c75-4763-bce8-711b42ffd954" style="Column header" x="24" y="51" width="102" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සාමාජික දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66ab12fb-da31-4f50-9b6b-1967026bab98" style="Column header" x="143" y="96" width="111" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[කාරක සභා දිනය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ebe6631f-c5f6-4268-be33-94b6c253cd95" style="Column header" x="433" y="96" width="111" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සටහන්]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3d4e8715-dcf7-44d0-9ffd-5941861a29e6" style="Detail" x="144" y="12" width="111" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_memberid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7b4be79e-d144-4cb6-a24f-4eaf05beae1b" style="Detail" x="144" y="32" width="111" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="2331de80-960e-4dee-84d5-93d5cef7c982" style="Detail" x="144" y="52" width="111" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_domembership}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="3d2f744b-f925-4696-b218-893829ae1f45" positionType="FixRelativeToBottom" x="0" y="83" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="819ef8a2-a4ff-4784-99f6-b0a9094266ed" x="279" y="96" width="100" height="15" forecolor="#666666" backcolor="#666666"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<text><![CDATA[වර්ගය]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="49b10ce4-314e-4f8d-98e8-b8e6e18d0e64" style="Detail" x="143" y="0" width="111" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{meeting_domeeting}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="918472d6-2a54-42e7-b0c9-b85d89b6114b" style="Detail" x="433" y="0" width="111" height="15"/>
+				<textElement>
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{attendance_reason}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6fb2345d-22d4-495f-a95e-ce3be77321fc" x="279" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{meetingtype_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="f0511218-cc12-48dd-9d73-6d6eb589e2b8" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="188a9116-ddd8-4487-82dd-c03750af2a52" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

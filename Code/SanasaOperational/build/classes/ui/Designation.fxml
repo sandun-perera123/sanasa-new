@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="623.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.DesignationController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutX="77.0" layoutY="60.0" prefHeight="67.0" prefWidth="526.0" styleClass="moduletopicback" AnchorPane.bottomAnchor="273.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="32.0" layoutY="21.0" styleClass="moduletopic" text="Designation Managenent" />
+         </children>
+      </Pane>
+      <Label layoutX="24.0" layoutY="135.0" text="Designation" />
+      <TextField fx:id="txtDesignation" layoutX="99.0" layoutY="131.0" onKeyReleased="#txtDesignationKR" prefHeight="25.0" prefWidth="267.0" />
+      <Button fx:id="btnAdd" layoutX="305.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="25.0" prefWidth="61.0" text="Add" />
+      <Button fx:id="btnClear" layoutX="236.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="25.0" prefWidth="61.0" text="Clear" />
+      <Button fx:id="btnUpdate" layoutX="167.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="25.0" prefWidth="61.0" text="Update" />
+      <Button fx:id="btnDelete" layoutX="99.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="25.0" prefWidth="61.0" text="Delete" />
+      <ListView fx:id="lstDesignation" layoutX="388.0" layoutY="90.0" onMouseClicked="#lstDesignationMC" prefHeight="211.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

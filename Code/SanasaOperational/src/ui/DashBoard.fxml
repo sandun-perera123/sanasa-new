@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.DashBoardController">
+   <children>
+      <Pane fx:id="pneChartDiposit" layoutX="23.0" layoutY="25.0" prefHeight="399.0" prefWidth="535.0" styleClass="chartPane" />
+      <Pane fx:id="pneChartShares" layoutX="580.0" layoutY="26.0" prefHeight="399.0" prefWidth="535.0" styleClass="chartPane" />
+      <ListView fx:id="lstNotificationList" layoutX="23.0" layoutY="473.0" onMouseClicked="#lstNotificationListMC" prefHeight="163.0" prefWidth="385.0" style="-fx-border-color: black;" styleClass="notificationPane" />
+      <Label layoutX="23.0" layoutY="442.0" text="පැමිණීම සටහන් නොකළ කාරක සභා">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

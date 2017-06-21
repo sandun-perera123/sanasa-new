@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="128.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ReportIncomeController">
+   <children>
+      <Label layoutX="37.0" layoutY="61.0" text="දිනය තෝරන්න" />
+      <DatePicker fx:id="dtpFrom" layoutX="146.0" layoutY="43.0" onAction="#dtpFromAP" prefHeight="25.0" prefWidth="222.0" promptText="From" />
+      <Button fx:id="btnSearch" layoutX="389.0" layoutY="56.0" mnemonicParsing="false" onAction="#btnSearchAP" prefHeight="25.0" prefWidth="77.0" text="Search" />
+      <DatePicker fx:id="dtpTo" layoutX="146.0" layoutY="71.0" onAction="#dtpToAP" prefHeight="25.0" prefWidth="222.0" promptText="To" />
+   </children>
+</AnchorPane>

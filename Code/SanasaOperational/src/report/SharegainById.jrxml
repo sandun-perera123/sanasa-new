@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e48446ca-746b-4b36-a0ef-f4960d88a8ec">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sharegainid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+smember.`id` AS smember_id,
+smember.`name` AS smember_name,
+sharegain.`date` AS sharegain_date,
+sharetype.`unitprice` AS sharetype_unitprice,
+share.`count` AS share_count,
+share.`linetotal` AS share_linetotal
+
+FROM
+     `smember` smember INNER JOIN `sharegain` sharegain ON smember.`id` = sharegain.`smember_id`
+     INNER JOIN `share` share ON sharegain.`id` = share.`sharegain_id`
+     INNER JOIN `sharetype` sharetype ON share.`sharetype_id` = sharetype.`id`
+WHERE sharegain.`id` = $P{sharegainid}]]>
+	</queryString>
+	<field name="smember_id" class="java.lang.Integer"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="sharegain_date" class="java.sql.Date"/>
+	<field name="sharetype_unitprice" class="java.math.BigDecimal"/>
+	<field name="share_count" class="java.lang.Integer"/>
+	<field name="share_linetotal" class="java.math.BigDecimal"/>
+	<variable name="totalcount" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{share_count}]]></variableExpression>
+	</variable>
+	<variable name="totalvalue" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{share_linetotal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e3bc421-0786-4702-843b-245a2534fa4a" x="145" y="16" width="366" height="65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="18"/>
+				</textElement>
+				<text><![CDATA[
+සී/ර මාදෙල්ගමුව සකසුරුවම් හා ණය ගණුදෙනු පිළිබද සමූපකාර සමිතිය]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement uuid="fb4a7635-7794-4ab0-8866-c5ee8e8b7740" x="10" y="5" width="104" height="92"/>
+				<imageExpression><![CDATA["C:\\Users\\Sandun-PC\\Desktop\\Sanasa\\Code\\Sanasa\\src\\image\\sanasalogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e3bc421-0786-4702-843b-245a2534fa4a" x="159" y="5" width="238" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="24"/>
+				</textElement>
+				<text><![CDATA[ලදුපත]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="1" y="1" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="0" y="38" width="555" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="111" splitType="Stretch">
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="1" y="25" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="41b9f485-3081-4276-a9e7-df77a7cf7e9c" x="397" y="3" width="40" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[දිනය]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="0" y="82" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="10" y="32" width="75" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="10" y="56" width="75" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[සාමාජික අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="10" y="85" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ඒකක මිල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="158" y="85" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[කොටස් ගණන]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="326" y="87" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[වටිනාකම]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="37ebb52a-8c3f-49ea-9e05-f7e6d8716de9" x="100" y="32" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="eec1dfa3-5313-49b4-9d5d-d5720cfb5bf2" x="448" y="3" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sharegain_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d7455bfb-11e8-4482-9586-ba20686573ff" x="100" y="56" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c46a9fa6-131b-4655-8f52-d987d0dfe868" x="10" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sharetype_unitprice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac2bb59c-62cc-472e-afc2-82d02b887a64" x="159" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{share_count}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="98cfda39-ddda-418b-8eb8-cabe73ad077d" x="326" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{share_linetotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement uuid="466ab113-65ec-4e25-8355-7f3e21d0da8c" x="158" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalcount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="1" y="0" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="0" y="1" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a16368b6-b08f-488e-a93c-3c085f785fa5" x="10" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[එකතුව]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="86c718c9-7811-441f-9f0f-3ccb946db307" x="326" y="5" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalvalue}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="159" y="25" width="99" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="159" y="27" width="99" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="327" y="25" width="99" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="8ec24553-51d2-4ad9-bec1-9469ef1187a6" x="327" y="27" width="99" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

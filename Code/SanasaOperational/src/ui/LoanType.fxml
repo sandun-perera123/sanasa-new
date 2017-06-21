@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="393.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoanTypeController">
+   <children>
+      <Label layoutX="23.0" layoutY="32.0" text="Name" />
+      <TextField fx:id="txtName" layoutX="110.0" layoutY="28.0" onKeyReleased="#txtNameKR" prefHeight="25.0" prefWidth="185.0" promptText="Enter Name" />
+      <Label fx:id="txtInterest" layoutX="23.0" layoutY="67.0" onKeyReleased="#txtInterestKR" text="Interest" />
+      <TextField layoutX="110.0" layoutY="63.0" prefHeight="25.0" prefWidth="185.0" promptText="Enter Interest" />
+      <TextField fx:id="txtMinDuration" layoutX="110.0" layoutY="98.0" onKeyReleased="#txtMinDurationKR" prefHeight="25.0" prefWidth="185.0" promptText="Enter Min Duration" />
+      <Label layoutX="21.0" layoutY="102.0" text="Min Duration" />
+      <TextField fx:id="txtMaxDuration" layoutX="110.0" layoutY="133.0" onKeyReleased="#txtMaxDurationKR" prefHeight="25.0" prefWidth="185.0" promptText="Enter Max Duration" />
+      <Label layoutX="21.0" layoutY="137.0" text="Max Duration" />
+      <TextField fx:id="txtMinAmount" layoutX="110.0" layoutY="168.0" onKeyReleased="#txtMinAmountKR" prefHeight="25.0" prefWidth="185.0" promptText="Enter Min Amount" />
+      <TextField fx:id="txtMaxAmount" layoutX="110.0" layoutY="203.0" onKeyReleased="#txtMaxAmountKR" prefHeight="25.0" prefWidth="185.0" promptText="Enter Max Duration" />
+      <Label layoutX="21.0" layoutY="172.0" text="Min Amount" />
+      <Label layoutX="20.0" layoutY="207.0" text="Max Amount" />
+      <ComboBox fx:id="cmbStatus" layoutX="110.0" layoutY="238.0" onAction="#cmbStatusAP" prefHeight="25.0" prefWidth="185.0" promptText="Select Status" />
+      <Button fx:id="btnAdd" layoutX="231.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="25.0" prefWidth="62.0" text="Add" />
+      <Button fx:id="btnDelete" layoutX="164.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="25.0" prefWidth="62.0" text="Delete" />
+      <Button fx:id="btnUpdate" layoutX="96.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="25.0" prefWidth="62.0" text="Update" />
+      <Button fx:id="btnClear" layoutX="26.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="25.0" prefWidth="62.0" text="Clear" />
+      <TableView fx:id="tblLoantype" layoutX="389.0" layoutY="83.0" onMouseClicked="#tblLoantypeMC" prefHeight="236.0" prefWidth="445.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="164.0" text="Name" />
+          <TableColumn fx:id="colInterest" prefWidth="59.0" text="Interest" />
+            <TableColumn fx:id="colMaxDuration" prefWidth="94.0" text="Max Duration" />
+            <TableColumn fx:id="colStatus" prefWidth="117.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="242.0" text="Status" />
+   </children>
+</AnchorPane>

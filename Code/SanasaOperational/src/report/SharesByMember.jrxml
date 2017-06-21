@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e6ff5d9-bfef-4ac2-a228-4043566354e8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="memberid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fdate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[(new SimpleDateFormat("yyyy-MM-dd")).parse("1900-01-01")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tdate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new java.util.Date()]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+smember.`memberid` AS smember_memberid,
+smember.`name` AS smember_name,
+smember.`domembership` AS smember_domembership,
+
+sharegain.`date` AS sharegain_date,
+sharetype.`unitprice` AS sharetype_unitprice,
+SUM(share.`count`) AS share_count_sum,
+SUM(share.`linetotal`) AS share_linetotal_sum
+
+FROM
+     `sharetype` sharetype INNER JOIN `share` share ON sharetype.`id` = share.`sharetype_id`
+     INNER JOIN `sharegain` sharegain ON share.`sharegain_id` = sharegain.`id`
+     INNER JOIN `smember` smember ON sharegain.`smember_id` = smember.`id`
+WHERE smember.`id` = $P{memberid} AND sharegain.`date` BETWEEN $P{fdate} AND $P{tdate}
+GROUP BY sharegain.`date`,sharetype.`unitprice`]]>
+	</queryString>
+	<field name="smember_memberid" class="java.lang.Integer"/>
+	<field name="smember_name" class="java.lang.String"/>
+	<field name="smember_domembership" class="java.sql.Date"/>
+	<field name="sharegain_date" class="java.sql.Date"/>
+	<field name="sharetype_unitprice" class="java.math.BigDecimal"/>
+	<field name="share_count_sum" class="java.math.BigDecimal"/>
+	<field name="share_linetotal_sum" class="java.math.BigDecimal"/>
+	<variable name="totalCount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{share_count_sum}]]></variableExpression>
+	</variable>
+	<variable name="totalValue" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{share_linetotal_sum}]]></variableExpression>
+	</variable>
+	<group name="sharegain_date">
+		<groupExpression><![CDATA[$F{sharegain_date}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField pattern="yyyy/MM/dd">
+					<reportElement uuid="3e49d9aa-750d-4dd4-a802-505badc8fd09" style="SubTitle" x="0" y="16" width="138" height="24" forecolor="#000000"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{sharegain_date}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13">
+				<line>
+					<reportElement uuid="ea78e460-6bde-4779-a796-72619e02c57c" x="0" y="2" width="555" height="1" forecolor="#999999"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e3bc421-0786-4702-843b-245a2534fa4a" x="145" y="21" width="366" height="65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Iskoola Pota" size="18"/>
+				</textElement>
+				<text><![CDATA[
+සී/ර මාදෙල්ගමුව සකසුරුවම් හා ණය ගණුදෙනු පිළිබද සමූපකාර සමිතිය]]></text>
+			</staticText>
+			<image hAlign="Center">
+				<reportElement uuid="fb4a7635-7794-4ab0-8866-c5ee8e8b7740" x="10" y="10" width="104" height="92"/>
+				<imageExpression><![CDATA["C:\\Users\\Sandun-PC\\Desktop\\Sanasa\\Code\\Sanasa\\src\\image\\sanasalogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="67c15d3c-bfcb-4ca1-9f22-1e4953976270" style="Column header" x="0" y="19" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[නම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c374dcd-6cc7-4234-bc47-dfae6b374674" style="Column header" x="0" y="38" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සාමාජික අංකය]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c78d51f3-89b2-48bc-bf6a-608085bb91ca" style="Column header" x="0" y="58" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[සාමාජික දිනය]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d3f7cbb5-5bd2-4afb-80d1-df0a7b62f25f" style="Detail" x="105" y="19" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fe08e672-2bf4-4afe-91c6-5f15b4de3bfe" style="Detail" x="105" y="38" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_memberid}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="a87c055b-32b2-4b65-ab26-d300faa361b2" style="Detail" x="105" y="58" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{smember_domembership}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="c5a46aa5-2083-4d26-a3b0-babf0f08659f" x="0" y="79" width="555" height="1" forecolor="#CCCCCC"/>
+			</line>
+			<line>
+				<reportElement uuid="c5a46aa5-2083-4d26-a3b0-babf0f08659f" x="-1" y="5" width="555" height="1" forecolor="#CCCCCC"/>
+			</line>
+			<staticText>
+				<reportElement uuid="3bf34ce7-f22a-457a-bf43-3833b48456b5" style="Column header" x="205" y="62" width="92" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[ඒකක මිල]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f722c38c-5a44-4692-b4db-eee46fc6f918" style="Column header" x="341" y="61" width="92" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[කොටස් ගණන]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c18bbec9-45a3-4569-9360-438924f724ef" style="Column header" x="446" y="62" width="76" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[වටිනාකම]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c81ed89c-dd5c-4636-bda9-92ec5051cfd3" style="Detail" x="314" y="2" width="92" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{share_count_sum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="398e5d89-cc20-4cd5-81c8-5a98c434137a" style="Detail" x="430" y="2" width="92" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{share_linetotal_sum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c0aee6e0-8ff9-457b-aee8-1b667453d968" style="Detail" x="205" y="2" width="92" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sharetype_unitprice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="68" splitType="Stretch">
+			<line>
+				<reportElement uuid="c0fdb36e-e2b0-4b4c-bf40-e59cc657e877" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="67c15d3c-bfcb-4ca1-9f22-1e4953976270" style="Column header" x="333" y="9" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[මුලු කොටස් ගණන]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="67c15d3c-bfcb-4ca1-9f22-1e4953976270" style="Column header" x="333" y="28" width="92" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Iskoola Pota"/>
+				</textElement>
+				<text><![CDATA[මුලු වටිනාකම]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b8271741-b334-4d18-a75c-d1779ed74f0c" x="446" y="9" width="77" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{totalCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b7c8dac5-1e71-4a84-b723-ad1956c278bd" x="446" y="29" width="77" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{totalValue}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="c0fdb36e-e2b0-4b4c-bf40-e59cc657e877" positionType="FixRelativeToBottom" x="0" y="49" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="yyyy/MM/dd">
+				<reportElement uuid="b4d7d3a7-a72c-43b6-a345-72237a0ad984" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

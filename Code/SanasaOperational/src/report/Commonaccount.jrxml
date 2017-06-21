@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b6e0efb-7ed4-4ebb-9f33-82521facbb0d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     commonaccount.`name` AS commonaccount_name,
+     commonaccount.`balance` AS commonaccount_balance,
+     commonaccountsubcategory.`name` AS commonaccountsubcategory_name,
+     commonaccountcategory.`name` AS commonaccountcategory_name
+FROM
+     `commonaccountsubcategory` commonaccountsubcategory INNER JOIN `commonaccount` commonaccount ON commonaccountsubcategory.`id` = commonaccount.`commonaccountsubcategory_id`
+     INNER JOIN `commonaccountcategory` commonaccountcategory ON commonaccountsubcategory.`commonaccountcategory_id` = commonaccountcategory.`id`]]>
+	</queryString>
+	<field name="commonaccount_name" class="java.lang.String"/>
+	<field name="commonaccount_balance" class="java.math.BigDecimal"/>
+	<field name="commonaccountcategory_name" class="java.lang.String"/>
+	<field name="commonaccountsubcategory_name" class="java.lang.String"/>
+	<group name="commonaccountcategory_name">
+		<groupExpression><![CDATA[$F{commonaccountcategory_name}]]></groupExpression>
+		<groupHeader>
+			<band height="28">
+				<textField>
+					<reportElement uuid="e90c30cf-9acc-4706-b2da-23a0fa8a3b1d" x="0" y="8" width="229" height="20"/>
+					<textElement>
+						<font fontName="Iskoola Pota" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{commonaccountcategory_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13"/>
+		</groupFooter>
+	</group>
+	<group name="commonaccountsubcategory_name">
+		<groupExpression><![CDATA[$F{commonaccountsubcategory_name}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement uuid="68504cbd-1e93-4824-b6bc-4fbbd870f5d8" x="22" y="4" width="207" height="20"/>
+					<textElement>
+						<font fontName="Iskoola Pota" size="11" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{commonaccountsubcategory_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8c41dd73-b8ab-4e6f-b2de-9ca0f03dfbad" x="209" y="0" width="146" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Iskoola Pota" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[පොදු ගිණුම් ශේෂය]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f985d6d0-e67c-4009-8c19-3a3b4b5fd5ab" x="106" y="0" width="207" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="11"/>
+				</textElement>
+				<text><![CDATA[ගිණුම]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="069595eb-3893-4c6a-ab82-9e60fbb1f0eb" x="340" y="1" width="185" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="11"/>
+				</textElement>
+				<text><![CDATA[ශේෂය]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="9b9cdf9b-4e93-45fe-a9c0-5aed7d9d6b82" x="1" y="22" width="554" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="31863fe9-cb05-4090-b2d1-f759753b9110" x="106" y="0" width="207" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccount_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="419e2539-81cd-424c-9db0-4f4e5ca0b1db" x="340" y="1" width="185" height="20"/>
+				<textElement>
+					<font fontName="Iskoola Pota" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{commonaccount_balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="10" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="705.0" prefWidth="1138.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.UserController">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="58.0" layoutY="132.0" text="සාමාජිකයා" />
+      <Label layoutX="58.0" layoutY="169.0" text="පරිශීලක නම" />
+      <Label layoutX="58.0" layoutY="208.0" text="මුර පදය" />
+      <Label layoutX="59.0" layoutY="245.0" text="මුර පදය (නැවත)" />
+      <Label layoutX="59.0" layoutY="283.0" text="තත්ත්වය" />
+      <ComboBox fx:id="cmbEmployee" layoutX="171.0" layoutY="128.0" onAction="#cmbEmployeeAP" prefHeight="25.0" prefWidth="303.0" promptText="සාමාජිකයා" />
+      <TextField fx:id="txtUsername" layoutX="171.0" layoutY="165.0" onKeyReleased="#txtUsernameKR" prefHeight="25.0" prefWidth="303.0" promptText="පරිශීලක නම" />
+      <PasswordField fx:id="pswPassword" layoutX="171.0" layoutY="204.0" onKeyReleased="#pswPasswordKR" prefHeight="25.0" prefWidth="303.0" promptText="මුර පදය" />
+      <PasswordField fx:id="pswRetypePassword" layoutX="171.0" layoutY="241.0" onKeyReleased="#pswRetypePasswordKR" prefHeight="25.0" prefWidth="303.0" promptText="මුර පදය (නැවත)" />
+      <ComboBox fx:id="cmbStatus" layoutX="171.0" layoutY="279.0" onAction="#cmbStatusAP" prefHeight="25.0" prefWidth="303.0" promptText="තත්ත්වය" />
+      <Label layoutX="574.0" layoutY="124.0" text="සාමාජික නම" />
+      <TextField fx:id="txtSearchEmpName" layoutX="689.0" layoutY="120.0" onKeyReleased="#txtSearchEmpNameKR" prefHeight="25.0" prefWidth="349.0" promptText="සාමාජික නම" />
+      <Label layoutX="61.0" layoutY="338.0" text="භූමිකාව" />
+      <ListView fx:id="lstLeft" layoutX="171.0" layoutY="337.0" prefHeight="156.0" prefWidth="123.0" />
+      <ListView fx:id="lstRight" layoutX="351.0" layoutY="337.0" prefHeight="156.0" prefWidth="123.0" />
+      <Button fx:id="btnRightAll" layoutX="307.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnRightAllAP" text="&gt;&gt;" />
+      <Button fx:id="btnRight" layoutX="307.0" layoutY="386.0" mnemonicParsing="false" onAction="#btnRightAP" prefHeight="25.0" prefWidth="33.0" text="&gt;" />
+      <Button fx:id="btnLeft" layoutX="307.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnLeftAP" prefHeight="25.0" prefWidth="33.0" text="&lt;" />
+      <Button fx:id="btnLeftAll" layoutX="307.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnLeftAllAP" text="&lt;&lt;" />
+      <Pagination fx:id="pagination" layoutX="575.0" layoutY="278.0" prefHeight="321.0" prefWidth="465.0" />
+      <TableView fx:id="tblUser" layoutX="574.0" layoutY="276.0" onKeyReleased="#tblUserKR" onMouseClicked="#tblUserMC" prefHeight="262.0" prefWidth="465.0">
+        <columns>
+          <TableColumn fx:id="colUsername" prefWidth="155.0" text="පරිශීලක නම" />
+          <TableColumn fx:id="colEmployee" prefWidth="155.0" text="සාමාජිකයා" />
+            <TableColumn fx:id="colStatus" prefWidth="155.0" text="තත්ත්වය" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSearchClear" layoutX="947.0" layoutY="191.0" mnemonicParsing="false" onAction="#btnSearchClearAP" prefHeight="27.0" prefWidth="92.0" text="මකන්න" />
+      <Label layoutX="575.0" layoutY="165.0" />
+      <ComboBox fx:id="cmbSearchRole" layoutX="689.0" layoutY="156.0" onAction="#cmbSearchRoleAP" prefHeight="25.0" prefWidth="349.0" promptText="භූමිකාව" />
+      <Pane prefHeight="57.0" prefWidth="1138.0" styleClass="topicPane">
+         <children>
+            <Label layoutX="27.0" layoutY="15.0" styleClass="topic" text="පරිශීලක ගිණුම්" />
+            <Button fx:id="btnAdd" layoutX="935.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnAddAP" prefHeight="30.0" prefWidth="103.0" text="සුරකින්න">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnClear" layoutX="822.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnClearAP" prefHeight="30.0" prefWidth="103.0" text="මකන්න" />
+            <Button fx:id="btnUpdate" layoutX="709.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnUpdateAP" prefHeight="30.0" prefWidth="103.0" text="යාවත්කාලීන">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Button>
+            <ImageView fitHeight="19.0" fitWidth="25.0" layoutX="711.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/update.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="938.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/add.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="827.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/clear.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="574.0" layoutY="160.0" text="භූමිකාව" />
+      <Button fx:id="btnDelete" layoutX="857.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnDeleteAP" prefHeight="30.0" prefWidth="181.0" text="දත්ත ගොනුවෙන් ඉවතට" />
+      <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="948.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/clear.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="858.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/delete.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
